@@ -1,7 +1,6 @@
-import { useEffect, useState,useCallback } from 'react'
+import { useEffect, useState } from 'react'
 import './Mail.css'
-import { Route ,Routes,Link } from 'react-router-dom'
-import Viewmail from './Viewmail'
+import {Link } from 'react-router-dom'
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 const Mail = (props) => {
     const [newmailreq , SetNewmailreq] = useState(false)
@@ -10,10 +9,11 @@ const Mail = (props) => {
     const [Domainname , SetDomainname] = useState('')
     const [Nameofemail , SetNameofEmail] = useState('')
     const [mailmessags , Setmailmessage] = useState([])
-    const newmail= useCallback(() => {
+    const newmail= () => {
         fetch("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=1")
         .then(response => response.text())
         .then(msg => {
+            //eslint-disable-next-line
             localStorage.setItem('mailname',msg.replace(/[\[\]"]/g,''))
             localStorage.setItem('Domainname',String(localStorage.getItem('mailname')).split('@')[1])
             localStorage.setItem('Nameofemail',String(localStorage.getItem('mailname')).split('@')[0])
@@ -22,7 +22,7 @@ const Mail = (props) => {
             SetNameofEmail(mailname.split('@')[0]) */
         })
         .catch(Setmailname("Sorry some error occuried"),err => console.log(err))
-    })
+    }
     const Emailmessages = (Nameofemail,Domainname) => {
         fetch(`https://www.1secmail.com/api/v1/?action=getMessages&login=${Nameofemail}&domain=${Domainname}`)
         .then(responce2 => responce2.json())
@@ -45,11 +45,11 @@ const Mail = (props) => {
     useEffect(() => {
             (newmailreq)&&(newmail())
         
-        {
+        
             Setmailname(String(localStorage.getItem('mailname')))
             SetDomainname(localStorage.getItem('Domainname'))
             SetNameofEmail(localStorage.getItem('Nameofemail')) 
-        }
+        
       },[newmailreq]);
 useEffect(() => {Emailmessages(Nameofemail,Domainname)})
     return(

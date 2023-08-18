@@ -3,9 +3,6 @@ import Mail from './Components/Mail';
 import { Routes, Route } from 'react-router-dom';
 import Viewmail from './Components/Viewmail';
 import {useState} from 'react'
-import userEvent from '@testing-library/user-event';
-import {CgWebsite} from 'react-icons/cg'
-import {BsLinkedin} from 'react-icons/bs'
 import Modal from './Components/popup';
 function App() {
   const [mailofid , SetMailofid] = useState()
