@@ -1,0 +1,64 @@
+/* styles.css */
+
+/* Email View Container */
+.email-view {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    color: black;
+  }
+  
+  /* Email Header */
+  .email-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .email-header .from {
+    font-weight: bold;
+  }
+  
+  .email-header .subject {
+    flex-grow: 1;
+    margin: 0 10px;
+  }
+  
+  .email-header .date {
+    color: #777;
+  }
+  
+  /* Email Attachments */
+  .email-attachments h4 {
+    margin-bottom: 5px;
+  }
+  
+  .email-attachments ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .email-attachments li {
+    margin-bottom: 5px;
+  }
+  
+  /* Email Body */
+  .email-body {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+    line-height: 1.5;
+  }
+  
+  .email-body p {
+    margin: 0;
+  }
+  
+  /* App Container */
+  .app {
+    font-family: Arial, sans-serif;
+  }
+  
