@@ -60,7 +60,7 @@ useEffect(() => {Emailmessages(Nameofemail,Domainname)})
                 <label> Email 
                 </label>
                 
-                <input type='text' value={mailname} disabled/>
+                <input type='text' value={(mailname === 'null')?'Plese press New Email Button':mailname} disabled />
                 <CopyToClipboard text={mailname}>
         <button onClick={(e)=>handleCopy(e)}>{(mailcopied)?'Copied':'Copy'}</button>
       </CopyToClipboard>
@@ -70,7 +70,7 @@ useEffect(() => {Emailmessages(Nameofemail,Domainname)})
             </form>
             <div className='table-view'>
                 {
-    (true)?<table border="1">
+    (mailmessags.length !== 0)?<table border="1">
     <thead>
         <tr>
         <th>Mail ID</th>
@@ -96,7 +96,9 @@ useEffect(() => {Emailmessages(Nameofemail,Domainname)})
         }
     </tbody>
 </table>:
-<h1>No Messages</h1>
+<div className='nomsg'>
+<h1>No messages</h1>
+</div>
                 }
             </div>
         </div>

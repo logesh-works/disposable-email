@@ -23,6 +23,9 @@ function App() {
   };
   return (
     <div className="App">
+      <div className='heading'>
+        <h1>EasyMail</h1>
+      </div>
       <Routes>
       <Route index  element={<Mail mailid={getid}/>} />
       <Route path="mailview" element = {<Viewmail id={mailofid} dom = {domainn} nameemail = {emailname}/>} />
@@ -32,7 +35,6 @@ function App() {
       <div>
       <button onClick={openModal}>Plese Read this instructions </button>
       <Modal isOpen={isModalOpen} onClose={closeModal} />
-    </div>
       <footer>
       <div class="footer">
       
@@ -43,6 +45,8 @@ function App() {
     
   </div>
       </footer>
+    </div>
+      
       </center>
     </div>
     
